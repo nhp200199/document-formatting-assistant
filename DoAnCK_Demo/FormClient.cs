@@ -26,7 +26,6 @@ namespace ĐoAnCK
                 FileStream fs = new FileStream(ofd.FileName, FileMode.OpenOrCreate);
                 StreamReader sr = new StreamReader(fs);
                 string content = sr.ReadToEnd();
-                MessageBox.Show("Gửi file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SendFile(content);
                 fs.Close();
             }
@@ -44,6 +43,7 @@ namespace ĐoAnCK
             {
                 Byte[] sendBytes = Encoding.UTF8.GetBytes(content);
                 udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", 8080);
+                MessageBox.Show("Gửi file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 butSee.Enabled = true;
             }
             catch (Exception ex)
@@ -54,20 +54,28 @@ namespace ĐoAnCK
 
         private void butSave_Click(object sender, EventArgs e)
         {
-          
-            FileStream fs = new FileStream("File_sau_khi_dinh_dang.txt", FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.WriteLine(rtxtResult.Text);
-            sw.Flush();
-            fs.Close();
-            
-            while (panel2.Width < panel1.Width)
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog().Equals(DialogResult.OK))
             {
-                panel2.Width += 5;                
+                FileStream fs = new FileStream(sfd.FileName, FileMode.OpenOrCreate);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(rtxtResult.Text);
+                sw.Flush();
+                fs.Close();
+
+                while (panel2.Width < panel1.Width)
+                {
+                    panel2.Width += 5;
+                }
+                MessageBox.Show("Lưu file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                butSave.Enabled = false;
+                butSee.Enabled = false;
             }
-            MessageBox.Show("Lưu file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            butSave.Enabled = false;
-            butSee.Enabled = false;
+            else
+            {
+                MessageBox.Show("Vui lòng chọn nơi để lưu file", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void butClose_Click(object sender, EventArgs e)

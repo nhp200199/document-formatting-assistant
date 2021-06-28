@@ -29,7 +29,6 @@ namespace ĐoAnCK
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClient));
             this.butSend = new System.Windows.Forms.Button();
             this.butSave = new System.Windows.Forms.Button();
             this.rtxtResult = new System.Windows.Forms.RichTextBox();
@@ -154,7 +153,6 @@ namespace ĐoAnCK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(699, 406);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);

@@ -42,6 +42,7 @@ namespace ĐoAnCK
             this.rtxtBefore.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtBefore.Location = new System.Drawing.Point(34, 67);
             this.rtxtBefore.Name = "rtxtBefore";
+            this.rtxtBefore.ReadOnly = true;
             this.rtxtBefore.Size = new System.Drawing.Size(638, 146);
             this.rtxtBefore.TabIndex = 0;
             this.rtxtBefore.Text = "";
@@ -51,6 +52,7 @@ namespace ĐoAnCK
             this.rtxtAfter.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtAfter.Location = new System.Drawing.Point(34, 248);
             this.rtxtAfter.Name = "rtxtAfter";
+            this.rtxtAfter.ReadOnly = true;
             this.rtxtAfter.Size = new System.Drawing.Size(638, 146);
             this.rtxtAfter.TabIndex = 1;
             this.rtxtAfter.Text = "";
