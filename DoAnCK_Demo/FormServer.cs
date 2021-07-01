@@ -131,11 +131,11 @@ namespace ĐoAnCK
             Regex trimmer = new Regex(@"\s\s+");
             string spaceRemovedText = trimmer.Replace(colonText, " ");
 
-            string capitalHandleText = Regex.Replace(spaceRemovedText, @"(?<=(^|[.!?])\s*)[a-zA-Z]",
+            string capitalHandleText = Regex.Replace(spaceRemovedText, @"(?<=(^|[.!?])\s*)[a-zA-Z0-9]",
     (match) => {
         return " " + match.Value.ToUpper();
     }); ;
-            string nonCapitalHandleText = Regex.Replace(capitalHandleText, @"(?<=(^|[,:;])\s*)[a-zA-Z]",
+            string nonCapitalHandleText = Regex.Replace(capitalHandleText, @"(?<=(^|[,:;])\s*)[a-zA-Z0-9]",
     (match) => {
         return " " + match.Value;
     }); ;
